@@ -29,6 +29,7 @@ export function activate(context: vscode.ExtensionContext) {
     let profile = config.get('profile', '');
 
     let args: string[] = ["-st"];
+    args = args.concat(config.get('additionalArguments', []));
 
     if (profile) {
       args.push("--profile=" + profile);
